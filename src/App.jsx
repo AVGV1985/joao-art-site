@@ -1,5 +1,5 @@
 import i18n from './i18n';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -109,7 +109,7 @@ function SiteLayout() {
 
 export default function App() {
   return (
-    <Router basename="/joao-art-site">
+    <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
