@@ -109,7 +109,7 @@ function SiteLayout() {
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/joao-art-site">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route
