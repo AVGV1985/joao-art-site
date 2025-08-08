@@ -1,5 +1,5 @@
 import i18n from './i18n';
-import { Routes, Route, Outlet, HashRouter as Router } from 'react-router-dom'
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -8,8 +8,8 @@ import Projetos from './pages/Projetos';
 import ProjectPage from './pages/ProjectPage';
 import Galeries from './pages/Galeries';
 import GaleriePage from './pages/GaleriePage';
-import Murais from './pages/Murais'; // ← NOVO
-import MuralPage from './pages/MuralPage'; // ← NOVO
+import Murais from './pages/Murais';
+import MuralPage from './pages/MuralPage';
 
 import Login from './pages/Login';
 import Admin from './pages/Admin';
@@ -19,7 +19,7 @@ import AdminAboutEditor from './pages/AdminAboutEditor';
 import AdminContactsEditor from './pages/AdminContactsEditor';
 import AdminProjectsEditor from './pages/AdminProjectsEditor';
 import AdminGalleriesEditor from './pages/AdminGalleriesEditor';
-import AdminMuralsEditor from './pages/AdminMuralsEditor'; // ← NOVO
+import AdminMuralsEditor from './pages/AdminMuralsEditor';
 
 import HamburgerMenu from './components/HamburgerMenu';
 import PrivateRoute from './components/PrivateRoute';
@@ -109,38 +109,36 @@ function SiteLayout() {
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/admin"
-          element={
-            <PrivateRoute>
-              <Admin />
-            </PrivateRoute>
-          }
-        >
-          <Route index element={<AdminHomeEditor />} />
-          <Route path="Sobre" element={<AdminAboutEditor />} />
-          <Route path="Contactos" element={<AdminContactsEditor />} />
-          <Route path="Projetos" element={<AdminProjectsEditor />} />
-          <Route path="Galerias" element={<AdminGalleriesEditor />} />
-          <Route path="Murais" element={<AdminMuralsEditor />} /> {/* ← NOVO */}
-          <Route path="Tema" element={<ThemeEditor />} />
-        </Route>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/admin"
+        element={
+          <PrivateRoute>
+            <Admin />
+          </PrivateRoute>
+        }
+      >
+        <Route index element={<AdminHomeEditor />} />
+        <Route path="Sobre" element={<AdminAboutEditor />} />
+        <Route path="Contactos" element={<AdminContactsEditor />} />
+        <Route path="Projetos" element={<AdminProjectsEditor />} />
+        <Route path="Galerias" element={<AdminGalleriesEditor />} />
+        <Route path="Murais" element={<AdminMuralsEditor />} />
+        <Route path="Tema" element={<ThemeEditor />} />
+      </Route>
 
-        <Route path="/" element={<SiteLayout />}>
-          <Route index element={<Home />} />
-          <Route path="projetos" element={<Projetos />} />
-          <Route path="projetos/:slug" element={<ProjectPage />} />
-          <Route path="galerias" element={<Galeries />} />
-          <Route path="galerias/:slug" element={<GaleriePage />} />
-          <Route path="murais" element={<Murais />} /> {/* ← NOVO */}
-          <Route path="murais/:slug" element={<MuralPage />} /> {/* ← NOVO */}
-          <Route path="Sobre" element={<Sobre />} />
-          <Route path="Contactos" element={<Contactos />} />
-        </Route>
-      </Routes>
-    </Router>
+      <Route path="/" element={<SiteLayout />}>
+        <Route index element={<Home />} />
+        <Route path="projetos" element={<Projetos />} />
+        <Route path="projetos/:slug" element={<ProjectPage />} />
+        <Route path="galerias" element={<Galeries />} />
+        <Route path="galerias/:slug" element={<GaleriePage />} />
+        <Route path="murais" element={<Murais />} />
+        <Route path="murais/:slug" element={<MuralPage />} />
+        <Route path="Sobre" element={<Sobre />} />
+        <Route path="Contactos" element={<Contactos />} />
+      </Route>
+    </Routes>
   );
 }
