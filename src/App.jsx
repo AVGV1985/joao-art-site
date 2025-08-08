@@ -1,5 +1,5 @@
 import i18n from './i18n';
-import { HashRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route, Outlet, HashRouter as Router } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
